@@ -108,5 +108,102 @@ After go to the terminal using mobxtream or putty.using public ip address.
 If its logged in means successfully we configure vpc.
 ===========================================================================
 
+                                                                    VPC PEERING
+To connecting 2 vpc’s called as the vpc peering.
+
+Previously vpc peering available in same region but now vpc peering available on across all regions
+
+2 types:
+Inside region
+Outside region
+
+Uses :
+Single company.
+Testing development and production
+Multi companies:
+We can peering b/w employees can access other company servers and vice versa
+For security purpose:
+
+If u want access any vpc like testing or dev first u need to managed or secured by management vpc.
+Hands on create 3 vpcs on 2 vpc or in one region and 1 vpc in different region.
+Ex:n.vieginia 2 vpcs and mumbai 1 vpc.
+
+
+
+
+
+After go to ec2 and launch the instances.
+Ec2 → micro → configure → choose rajvpc1 → choose ur subnet → practise purpose (security group allow all) → launch instance..
+Same above process launch other instance in rajvpcsameregion
+
+Login 2 servers of same region in terminal.
+Login in to 2 servers ping from one server to another server of private ip not pulicip.
+Note: when private ip’s are pinging then vpc peering done successfully.not public
+
+Initially it wont ping after we did vpc peer it will ping.
+
+For vpc peering.
+Note: vpc peering 2 servers don’t have same ip if exists it will through an error
+Go to aws -> vpc connection → create a peering connection → tagname (rajpeering to rajvpc1) →  select under local vpc under → choose the vpc of rajvpc → select another vpc accepter → choose our another (sameregionvpc) → create a vpc peering.
+
+Afte it will show pending for that → actions → accept request → ok.--> now the status will be active .
+
+ .
+
+
+
+
+After that go to rajvpc instance terminal ping another server private ip it won’t work.
+Because we need to update the route table. Of 2 vpc routes
+Now first  go to rajvpc routes → below routes tab → click on edit → under destination u 
+
+have to give the another server vpc range (means sameregion vpc range is 10.0.1.0/16) → target choose peer connection (chooose raj peer connection ) → click on ok.
+
+Now go to route of rajsameregion check this and below roues add destination ip is (the ip range of rajvpc 10.0.0.0/16) → target + peerconnection choose raj peer connection → click on ok.
+
+After all settings done gop to rajvpc ec2 terminal nad ping the private ip address of rajsameregion (second server ) now it will ping the private ip address.
+
+Note: if u want check this doing exactly peering or not just go to vpc routes → edit ---> under destination (change the ip range from default value to anything it will stop the pinging again u revert back it will start to pinging once).
+
+As of Now above we did only in same region if that vpc there in out of region it will be chargeable follow below procedure.
+
+NOte: of u want perform multi region peering the keypair of ec2 instance login it must be same.
+For that go to mumbai region → under ec2 → keypair → actons → import → place the ppk file of other instance or → under public key contents + copy the instance public key below procedure as follows. → click on import.
+
+If u want get a public key login into server → ec2-metadata (under last we will get ssh-rsa public key copy that and .
+
+Launch the instances.
+Launch instance in mumbai region → choose key what we configure key.
+
+Creata peering connection → name northverginia instance to mumbai → choose nvregionvpc (as a requester) → under select another vpc peer with + region tab choose another region choose mumbai region → under vpc acceptance (input field copy the vpc id of mumbai region vpc) go to mumbai vpc check below summary u will find vpcid →paste in acepter vpc → create peering connection .
+
+****** if u want activate the peering connection go to your destination peerconnection region  → under peer connection action u will find the activate peer connection.(this connection for actions not showing enable peerconnection on source vpc).
+
+
+Now login into two terminals try to ping it won’t ping now we need to configure the 2 routing tables.
+
+Routing tables -> edit routes → destination + give mumbai ip range ) → target -->choose vpc peerconnection choose ur peer connection).
+
+Routing tables -> edit routes → destination + give mumbai ip range ) → target -->choose vpc peerconnection choose ur peer connection)
+
+Now u can go to another server routes follow above the same procedure now it will pingf.
+
+Now not ping now i want access the nv server from my mumbai server for that we need to configure pemfile.
+
+Login into mumbai server as a root → sudu su -
+After create a file with same name → vi sp-key.pem (paste the key pair pem file total code in this file).
+Note: keypair should be common between both servers,
+After pasting the pem file now from ur root of mumbai server uf u access means it will through an error.
+Bcoz we need provide read permission to pemfile for that
+chmod 400 sp-key.pem
+
+Now from root try like this below way.
+root@ip-10.64.63]#   ssh -i sp-key.pem ec2-user@privateipofserver + enter 
+
+Now u can successfully login into that server from mumbai.
+Note : if u want access tha another server peering must be enable.
+
+*** when vpc concept → ip’s are must be different otherwise ip’s are overlap.
+Vpc transit won’t work.
 
 
