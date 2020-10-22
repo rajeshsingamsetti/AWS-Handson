@@ -52,13 +52,19 @@ https://www.paessler.com/it-explained/ip-address
 
 Class	Address range
 Class A	1.0.0.1 to 126.255.255.254
+private range:
+10.0.0.0 – 10.255.255.255
+
 Class B	128.1.0.1 to 191.255.255.254
+private range:
+172.16.0.0 – 172.31.255.255
+
 Class C	192.0.1.1 to 223.255.254.254
+private range:
+192.168.0.0 – 192.168.255.255
+
 Class D	224.0.0.0 to 239.255.255.255
 
 world every ip exist in above classes
 
-
-
-
-in 
+ 
