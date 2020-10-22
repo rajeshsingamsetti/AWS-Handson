@@ -74,4 +74,43 @@ ex: 10 th hall ticket in ur own school rollno
 private ip is internal network communication purpose
 publicip is communicate over internet 
 
+==========subneting===================
+refurl: http://www.subnet-calculator.com/subnet.php?net_class=A
+000 - 1
+001 - 2
+010 - 4
+011 - 8
+100 -16
+101- 32
+110 - 64
+111 - 128
+
+if we add all bits we will get 255 bit
+
+10.1.0.0/16 > 65k
+10.1.1.0/24 > 255 
+10.1.2.0/24 > 255 
+
+vpc use
+custom own network layer or interface
+more security
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
