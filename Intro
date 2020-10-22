@@ -26,3 +26,39 @@ we have one service like flipkart if we deploy that service in only 1 az that az
 
 to overcome load or availability we need to deploy our webapp on multi az then 1 az gone means another az will available
 
+virualization:
+ec2 every machine is virutualization
+
+physical server
+hypervisor
+webapps
+db
+
+dedicated physical servers high cost rarely using
+
+======================================
+IP Adressing
+2 types
+ipv4 32 bit size -- 
+172.217.13.228
+1.0.0.0 to 255.255.255.255
+ipv6 64 bit --- 
+now no one are using ipv6
+
+mostly using ipv4
+ip address class
+refurl:
+https://www.paessler.com/it-explained/ip-address
+
+Class	Address range
+Class A	1.0.0.1 to 126.255.255.254
+Class B	128.1.0.1 to 191.255.255.254
+Class C	192.0.1.1 to 223.255.254.254
+Class D	224.0.0.0 to 239.255.255.255
+
+world every ip exist in above classes
+
+
+
+
+in 
