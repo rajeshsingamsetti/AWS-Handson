@@ -20,3 +20,9 @@ ref url:
 https://infrastructure.aws/
 
 az means region inside a place with in 100km a dataceneters will exist
+
+3 tier or multi tier archetecture menans
+we have one service like flipkart if we deploy that service in only 1 az that az gone means evertything is gone in aws we don't fallbackloops.
+
+to overcome load or availability we need to deploy our webapp on multi az then 1 az gone means another az will available
+
