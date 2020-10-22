@@ -9,3 +9,14 @@ check jobs available on aws
 why aws 
 good in iaas ,more jobs, rapid developement,Heavy automation tools
 
+AWS Regions & Avaialability zones
+
+ref url:
+https://aws.amazon.com/about-aws/global-infrastructure/?p=ngi&loc=0
+https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+
+more graphical about az and regions
+ref url:
+https://infrastructure.aws/
+
+az means region inside a place with in 100km a dataceneters will exist
