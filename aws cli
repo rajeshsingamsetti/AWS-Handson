@@ -39,5 +39,81 @@ chooose json:
 
 aws ec2 describe-instances --region ap-south-1
 
+aws ec2 describe-instances --region ap-south-1 --output table
+
+aws ec2 describe-instances --region ap-south-1 --output text
+
+=============aws cli ec2===============================
+keypair
+security group
+ami
+vpc & subnet
+elastic ip
+
+keypair
+aws ec2 help
+aws ec2 create-key-pair help
+create a keypair
+
+aws ec2 create-key-pair --key-name MyKeyPair
+
+to genarate a pem file
+aws ec2 create-key-pair --key-name MyKeyPair --output text > MyKeyPair.pem
+
+                               security group
+
+EXAMPLES
+       To create a security group for EC2-Classic
+
+       This example creates a security group named MySecurityGroup.
+
+       Command:
+
+          aws ec2 create-security-group --group-name MySecurityGroup --description "My security group"
+
+       Output:
+
+          {
+              "GroupId": "sg-903004f8"
+          }
+
+       To create a security group for EC2-VPC
+
+       This example creates a security group  named  MySecurityGroup  for  the
+       specified VPC.
+
+       Command:
+
+          aws ec2 create-security-group --group-name MySecurityGroup --description "My security group" --vpc-id vpc-1a2b3c4d
+
+       Output:
+
+          {
+              "GroupId": "sg-903004f8"
+          }
+
+       For more information, see Using Security Groups in the AWS Command Line
+       Interface User Guide.
+
+** to list the security groups
+aws ec2 describe-security-groups help
+
+EXAMPLES
+       Example 1: To describe a security group
+
+       The  following describe-security-groups example describes the specified
+       security group.
+
+          aws ec2 describe-security-groups \
+              --group-ids sg-903004f8
+---------------
+
+
+              
+
+
+
+
+
 
 
