@@ -210,5 +210,95 @@ Example 5: To launch an instance with user data
               --credit-specification CpuCredits=unlimited
 
 
+********* elastic ip
+
+aws ec2 allocate-address help
+
+EXAMPLES
+       Example 1: To allocate an Elastic IP address for EC2-Classic
+
+       The following allocate-address example allocates an Elastic IP  address
+       to use with an instance in EC2-Classic.
+
+          aws ec2 allocate-address
+
+       Output:
+
+          {
+              "PublicIp": "198.51.100.0",
+              "PublicIpv4Pool": "amazon",
+              "Domain": "standard"
+          }
+
+       Example 2: To allocate an Elastic IP address for EC2-VPC
+
+       The  following allocate-address example allocates an Elastic IP address
+       to use with an instance in a VPC.
+
+          aws ec2 allocate-address \
+              --domain vpc \
+              --network-border-group us-west-2-lax-1
+
+       Output:
+
+          {
+              "PublicIp": "70.224.234.241",
+              "AllocationId": "eipalloc-02463d08ceEXAMPLE",
+              "PublicIpv4Pool": "amazon",
+              "NetworkBorderGroup": "us-west-2-lax-1",
+              "Domain": "vpc"
+          }
+
+==========terminate ec2 instance
+aws ec2 terminate-instances help
+
+EXAMPLES
+       To terminate an Amazon EC2 instance
+
+       This example terminates the specified instance.
+
+       Command:
+
+          aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+
+       Output:
+
+          {
+              "TerminatingInstances": [
+                  {
+                      "InstanceId": "i-1234567890abcdef0",
+                      "CurrentState": {
+                          "Code": 32,
+                          "Name": "shutting-down"
+                      },
+                      "PreviousState": {
+                          "Code": 16,
+                          "Name": "running"
+                      }
+                  }
+              ]
+          }
+
+
+===========================================s3======================s3===============s3===========================
+s3
+
+aws s3 help
+
+aws s3 mb help
+EXAMPLES
+       The  following  mb command creates a bucket.  In this example, the user
+       makes the bucket mybucket.  The bucket is created in the region  speci-
+       fied in the user's configuration file:
+
+          aws s3 mb s3://mybucket
+
+       Output:
+
+          make_bucket: s3://mybucket
+ 
+**** upload the data
+
+
 
 
