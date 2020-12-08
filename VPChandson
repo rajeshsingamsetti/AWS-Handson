@@ -110,6 +110,8 @@ If its logged in means successfully we configure vpc.
 
                                                                     VPC PEERING
 To connecting 2 vpc’s called as the vpc peering.
+10.0.0.0/16
+10.1.0.0/16
 
 Previously vpc peering available in same region but now vpc peering available on across all regions
 
